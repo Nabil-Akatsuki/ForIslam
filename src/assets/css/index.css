@@ -1,0 +1,76 @@
+
+.imageMosque{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.App{
+  background-color:#14283D;
+}
+.mb-3{
+text-align: center;
+width: 325px;
+margin-left: 125px;
+}
+.corpsLogin{
+  margin-top: 120px;
+  padding: 30px ;
+  flex-direction: column;
+}
+.textColor{
+  color:white;
+  text-align: center;
+}
+.nav-link.side-link{
+  padding: 5px;
+  color:white;
+  
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.nav-link.side-link:hover{
+color:  #cd6155;
+}
+h4{
+  background-color: #cd6155;
+  color:white;
+ 
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  ;
+}
+.Titre{
+  background-color: #cd6155;
+  color: white;
+  margin-top: -210px;
+}
+.nav-link.side-link1{
+  padding: 5px;
+  color: white;
+  
+  
+  border-radius: 5px;
+  font-size: 20px;
+}
+.nav-link.side-link1:hover{
+  color:  #cd6155;
+}
+.search{
+  border-radius: 10px;
+  text-align: center;
+  margin-top: -122px;
+  padding: 5px;
+  margin-bottom: 30px;
+}
+.liste{
+color: black;
+}
+.TextArabe{
+  text-align: center;
+  font-size: 20px;
+}
+a:active{
+  color: blue;
+}
