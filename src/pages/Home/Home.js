@@ -134,7 +134,7 @@ function Home() {
 
                         })
                     }
-                    <div className="row" style={{ padding: '3px' }}>
+                    <div className="row" style={{ padding: '5px' }}>
                         <div className="col-6">
                             <Button onClick={handleClickPrecedent}>Précédant</Button>
                         </div>
