@@ -100,21 +100,22 @@ function Home() {
             </Row>
             <hr></hr>
             <Row style={{ margin: "35px" }}>
-                <Col xs={8}>
+                <Col xs={9} >
                     <Alert className="TextArabe" variant="secondary">
                         Sourate :   {currentSourate?.nom_phonetique}
                     </Alert>
 
-                    {
-                        currentSourate?.versets.map(verset => {
-                            return <p key={verset?.position} className='textArabe'>
-                                {`${verset.position}-${verset.text}`}
-
-                            </p>
-                        })
-                    }
+                    <div style={{ maxHeight: "500px", overflow: "auto" }}>
+                        {
+                            currentSourate?.versets.map(verset => {
+                                return <p key={verset?.position} className='textArabe'>
+                                    {`${verset.position}-${verset.text}`}
+                                </p>
+                            })
+                        }
+                    </div>
                 </Col>
-                <Col xs={4}>
+                <Col xs={3}>
                     <Alert className="TextArabe" variant="secondary">
                         Listes des Sourates
                     </Alert>

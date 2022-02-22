@@ -71,6 +71,15 @@ color: black;
   text-align: center;
   font-size: 20px;
 }
-a:active{
+a:active, a:focus{ color: blue; } 
+
+.barre-laterale{
+  background-color: gray;
+  color: white;
+}
+.textCarousel{
+  color: white;
+}
+.barre-laterale:active,.barre-laterale:focus{
   color: blue;
 }

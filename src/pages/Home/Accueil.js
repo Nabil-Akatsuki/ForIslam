@@ -42,7 +42,8 @@ function Accueil({ setLoggedIn }) {
                                     </Button>
                                     <a style={{
                                         marginLeft: "-30px",
-                                        color: "white"
+                                        color: "white", textDecoration: 'none',
+                                        marginTop: '15px',
                                     }} href="#">Mot de passe oublié ?</a>
                                 </Row>
                             </Form>

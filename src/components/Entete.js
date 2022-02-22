@@ -22,7 +22,7 @@ function Entete({loggedIn}) {
                             <Nav.Link href="#pricing"></Nav.Link>
                             {loggedIn ? (<NavDropdown title="Education" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1" as={Link} to="/articles">Articles</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2"  as={Link} to="/interfacecoran">Coran</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2"  as={Link} to="/messagerie">Goupe de discussion</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3"></NavDropdown.Item>
                             </NavDropdown>):null}
                         </Nav>
