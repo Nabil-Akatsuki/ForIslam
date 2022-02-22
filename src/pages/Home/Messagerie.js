@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Container, Row, Col, Nav, Button, Carousel } from 'react-bootstrap'
-import '../../assets/css/index.css'
+
 import mosque14 from '../../image/mosque14.jpg'
 import mosque12 from '../../image/mosque12.jpg'
 import mosque16 from '../../image/mosque16.jpg'
