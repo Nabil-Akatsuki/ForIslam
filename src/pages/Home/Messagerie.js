@@ -11,11 +11,11 @@ import mosque16 from '../../image/mosque16.jpg'
 function Messagerie() {
     return (
 
-        <Container fluid style={{ minHeight: "100vh" }}>
+        <Container fluid style={{ minHeight: "100vh", paddingTop:"80px"}}>
 
             <Row>
-                <Col xs={3} style={{ width: '230px' }}>
-                    <div style={{ marginTop: '100px', width: '195px' }}>
+                <Col xs={12} md={2}>
+                    <div>
                         <Nav defaultActiveKey="/home" className="flex-column">
                             <Nav.Link href="" style={{ backgroundColor: 'gray', padding: '5px', textAlign: 'center', color: 'white' }}>Nom Utilisateur</Nav.Link>
                             <hr></hr>
@@ -28,21 +28,21 @@ function Messagerie() {
                     </div>
                 </Col>
 
-                <Col xs={6}>
-                    <div style={{ marginTop: '100px' }}>
+                <Col xs={12} md={6} >
+                    <div>
                         <Nav.Link style={{ textAlign: 'center', backgroundColor: 'gray', padding: '5px', color: 'white' }}>Groupe de discussion</Nav.Link>
                     </div>
                     <div style={{ background: '#e0e4e4' }}>
                         <div style={{ minHeight: "400px", overflow: "auto" }}>
 <p></p>
                         </div>
-                        <div>
-                            <input style={{ width: '540px', height: '40px', marginLeft: '10px' }} />
+                        <div style={{marginBottom:'12px'}} >
+                            <input  />
                             <Button variant="secondary" style={{ marginLeft: '11px' }}>Envoyer</Button>
                         </div>
                     </div>
                 </Col>
-                <Col xs={3} style={{ marginTop: '100px', width: '440px' }}>
+                <Col xs={12} md={4} >
                     <div>
                         <Carousel variant="dark">
                             <Carousel.Item>
