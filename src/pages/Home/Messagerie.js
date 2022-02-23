@@ -11,7 +11,7 @@ import mosque16 from '../../image/mosque16.jpg'
 function Messagerie() {
     return (
 
-        <Container fluid style={{ minHeight: "100vh", paddingTop:"80px"}}>
+        <Container fluid style={{ minHeight: "100vh", paddingTop: "80px" }}>
 
             <Row>
                 <Col xs={12} md={2}>
@@ -24,7 +24,7 @@ function Messagerie() {
                             <Nav.Link href="" className='barre-laterale'>Faire un DON</Nav.Link>
                             <Nav.Link href="" className='barre-laterale'>A propos</Nav.Link>
                         </Nav>
-                       
+
                     </div>
                 </Col>
 
@@ -34,10 +34,10 @@ function Messagerie() {
                     </div>
                     <div style={{ background: '#e0e4e4' }}>
                         <div style={{ minHeight: "400px", overflow: "auto" }}>
-<p></p>
+                            <p></p>
                         </div>
-                        <div style={{marginBottom:'12px'}} >
-                            <input  />
+                        <div style={{ marginBottom: '12px' }} >
+                            <input />
                             <Button variant="secondary" style={{ marginLeft: '11px' }}>Envoyer</Button>
                         </div>
                     </div>
@@ -90,5 +90,4 @@ function Messagerie() {
         </Container>
     )
 }
-
 export default Messagerie

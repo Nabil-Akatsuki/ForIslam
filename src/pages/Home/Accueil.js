@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, Button} from 'react-bootstrap'
 import mosque10 from '../../image/mosque10.jpg'
 function Accueil({ setLoggedIn }) {
     return (
-        <Container fluid style={{ minHeight: "100vh",paddingTop: "80px", backgroundImage: "url(" + mosque10 + ")"}}>
+        <Container fluid style={{ minHeight: "100vh",paddingTop: "150px", backgroundImage: "url(" + mosque10 + ")", backgroundSize:'cover'}}>
             <Row>
                 <Col xs={12} md={8} >
                     <h3 style={{ color: "white" }}><strong> Qui combat la vérité sera vaincu</strong></h3>
