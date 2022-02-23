@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Row, Col, Form, Button} from 'react-bootstrap'
 import mosque10 from '../../image/mosque10.jpg'
 function Accueil({ setLoggedIn }) {
+    const [userMail, setUserMail] = useState('');
+    const [userPassWord, setUserPassWord] = useState('');
     return (
         <Container fluid style={{ minHeight: "100vh",paddingTop: "150px", backgroundImage: "url(" + mosque10 + ")", backgroundSize:'cover'}}>
             <Row>
@@ -16,11 +18,11 @@ function Accueil({ setLoggedIn }) {
                     <h5 style={{ color: "white" }}>Restez connecter à l'Islam où que vous soyez !</h5>
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="E-mail" />
+                            <Form.Control type="email" placeholder="E-mail" value={userMail} onChange={(e)=>setUserMail(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Mot de passe" />
+                            <Form.Control type="password" placeholder="Mot de passe" value={userPassWord} onChange={(e)=>setUserPassWord(e.target.value)} />
                         </Form.Group>
                     </Form>
                     <Button onClick={(e) => { e.preventDefault(); setLoggedIn(true) }} variant="primary" type="submit">Connexion</Button>
