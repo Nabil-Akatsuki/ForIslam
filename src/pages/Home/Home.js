@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { ButtonGroup, Button, Row, Col, Container, DropdownButton, Dropdown, InputGroup, FormControl, Alert } from 'react-bootstrap';
 import data from '../../assets/data/quran.json'
+import { FaLessThan, FaGreaterThan } from "react-icons/fa";
 
 function Home() {
     const [sourate, setSourate] = useState([]);
@@ -77,9 +78,9 @@ function Home() {
         }
     }, [currentPosition])
     return (
-        <Container fluid style={{ minHeight: "100vh" }}>
-            <Row style={{ marginLeft: "130px" }}>
-                <Col xs={6} style={{ marginTop: "80px" }}>
+        <Container fluid style={{ minHeight: "100vh", paddingTop: "70px" }}>
+            <Row  sm='auto' >
+                <Col xs={6} md={4} >
                     <ButtonGroup>
                         <DropdownButton variant="secondary" as={ButtonGroup} title="Langues" id="bg-nested-dropdown">
                             <Dropdown.Item eventKey="1">Français</Dropdown.Item>
@@ -87,42 +88,18 @@ function Home() {
                         </DropdownButton>
                     </ButtonGroup>
                 </Col>
-                <Col xs={6} style={{ marginTop: "80px" }}>
-                    <InputGroup className="mb-3">
-                        <FormControl
-                            placeholder="Recherchez une Sourate"
-                            aria-label="Recipient's username"
-                            aria-describedby="basic-addon2"
-                        />
-                        <Button variant="secondary">Recherche</Button>
-                    </InputGroup>
-                </Col>
+                
             </Row>
             <hr></hr>
-            <Row style={{ margin: "35px" }}>
-                <Col xs={9} >
-                    <Alert className="TextArabe" variant="secondary">
-                        Sourate :   {currentSourate?.nom_phonetique}
-                    </Alert>
-
-                    <div style={{ maxHeight: "500px", overflow: "auto" }}>
-                        {
-                            currentSourate?.versets.map(verset => {
-                                return <p key={verset?.position} className='textArabe'>
-                                    {`${verset.position}-${verset.text}`}
-                                </p>
-                            })
-                        }
-                    </div>
-                </Col>
-                <Col xs={3}>
-                    <Alert className="TextArabe" variant="secondary">
+            <Row>
+                <Col xs={12} md={3}>
+                    <Alert className="TextArabe" variant="secondary" style={{textAlign:'center'}}>
                         Listes des Sourates
                     </Alert>
 
                     {
                         sourateByPage?.map(sour => {
-                            return <p key={sour?.position} className="TextArabe">
+                            return <p key={sour?.position} style={{textAlign:'center'}} >
 
                                 <a className="liste" href="#" onClick={(e) => {
                                     e.preventDefault();
@@ -137,11 +114,26 @@ function Home() {
                     }
                     <div className="row" style={{ padding: '5px' }}>
                         <div className="col-6">
-                            <Button onClick={handleClickPrecedent}>Précédant</Button>
+                            <Button variant="secondary" onClick={handleClickPrecedent}><FaLessThan/></Button>
                         </div>
-                        <div className='col-6' style={{ textAlign: 'right' }}>
-                            <Button onClick={handleClickSuivant}>suivant</Button>
+                        <div className='col-6' style={{ textAlign: 'right', marginBottom:'12px' }}>
+                            <Button variant="secondary" onClick={handleClickSuivant}><FaGreaterThan/></Button>
                         </div>
+                    </div>
+                </Col>
+                <Col xs={12} md={9}  style={{marginTop:'15px'}} >
+                    <Alert className="TextArabe" variant="secondary" style={{textAlign:'center'}}>
+                        Sourate :   {currentSourate?.nom_phonetique}
+                    </Alert>
+
+                    <div style={{ maxHeight: "500px", overflow: "auto" }}>
+                        {
+                            currentSourate?.versets.map(verset => {
+                                return <p key={verset?.position} className='textArabe'>
+                                    {`${verset.position}-${verset.text}`}
+                                </p>
+                            })
+                        }
                     </div>
                 </Col>
             </Row>
