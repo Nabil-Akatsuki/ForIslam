@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { ButtonGroup, Button, Row, Col, Container, DropdownButton, Dropdown, InputGroup, FormControl, Alert } from 'react-bootstrap';
 import data from '../../assets/data/quran.json'
 import { FaLessThan, FaGreaterThan } from "react-icons/fa";
+import '../../assets/css/home.css'
 
 function Home() {
     const [sourate, setSourate] = useState([]);
@@ -121,7 +122,7 @@ function Home() {
                         </div>
                     </div>
                 </Col>
-                <Col xs={12} md={9}  style={{marginTop:'15px'}} >
+                <Col xs={12} md={9}>
                     <Alert className="TextArabe" variant="secondary" style={{textAlign:'center'}}>
                         Sourate :   {currentSourate?.nom_phonetique}
                     </Alert>
