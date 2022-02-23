@@ -3,32 +3,23 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import mosque5 from '../../image/mosque5.jpg'
 function Inscription() {
     return (
-        <Container fluid style={{ minHeight: "100vh", backgroundImage: "url(" + mosque5 + ")", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+        <Container fluid style={{ minHeight: "100vh", paddingTop: "100px",backgroundImage: "url(" + mosque5 + ")", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
             <Row>
-                <Col>
-                    <Form style={{ margin: "100px" }}>
+                <Col xs={12} md={4}>
+                    <Form >
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Control type="name" placeholder="Entrez votre nom" />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Control type="name" placeholder="Entrez Votre prenom" />
                         </Form.Group>
-                        <Col style={{ marginLeft: "inherit", marginBottom: "8px" }}>
-                            <Form.Check
-                                style={{ color: "white" }}
-                                required
-                                label="Homme"
-                                feedback="You must agree before submitting."
-                                feedbackType="invalid"
-                            />
-                            <Form.Check
-                                style={{ color: "white" }}
-                                required
-                                label="Femme"
-                                feedback="You must agree before submitting."
-                                feedbackType="invalid"
-                            />
-                        </Col>
+                        <Form.Group className="mb-3" controlId="formBasicName">
+                            <Form.Select aria-label="Default select example">
+                                <option value="">Choisissez votre sexe</option>
+                                <option value="Homme">Homme</option>
+                                <option value="Femme">Femme</option>
+                            </Form.Select>
+                        </Form.Group>
                         <Form.Group className="mb-3" controlId="formBasicDate">
                             <Form.Control type="date" />
                         </Form.Group>
@@ -45,8 +36,8 @@ function Inscription() {
 
                     </Form>
                 </Col>
-                <Col>
-                    <h2 style={{color:"floralwhite",margin:"100px"}}>Sachez que la vie présente n'est que jeu, amusement, vaine parure, une course à l'orgueil entre vous et une rivalité dans l'acquisition des richesses et des enfants. Elle est en cela pareille à une pluie : la végétation qui en vient émerveille les cultivateurs, puis elle se fane et tu la vois donc jaunie; ensuite elle devient des débris. [...]</h2>
+                <Col xs={12} md={8}>
+                    <h4 style={{ color: "floralwhite"}}>Sachez que la vie présente n'est que jeu, amusement, vaine parure, une course à l'orgueil entre vous et une rivalité dans l'acquisition des richesses et des enfants. Elle est en cela pareille à une pluie : la végétation qui en vient émerveille les cultivateurs, puis elle se fane et tu la vois donc jaunie; ensuite elle devient des débris. [...]</h4>
                 </Col>
             </Row>
         </Container>
