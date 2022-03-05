@@ -1,11 +1,24 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Form, Button} from 'react-bootstrap'
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
 import mosque10 from '../../image/mosque10.jpg'
+import { logIn } from '../../services/authenti';
+
+
 function Accueil({ setLoggedIn }) {
     const [userMail, setUserMail] = useState('');
-    const [userPassWord, setUserPassWord] = useState('');
+    const [userPass, setUserPassWord] = useState('');
+
+    const sendLogIn = (e) => {
+        e.preventDefault();
+        logIn({userMail, userPass}).then(response => {
+            console.log(response.data)
+        }, reason => {
+            console.log(reason?.response?.data)
+        })
+
+    }
     return (
-        <Container fluid style={{ minHeight: "100vh",paddingTop: "150px", backgroundImage: "url(" + mosque10 + ")", backgroundSize:'cover'}}>
+        <Container fluid style={{ minHeight: "100vh", paddingTop: "150px", backgroundImage: "url(" + mosque10 + ")", backgroundSize: 'cover' }}>
             <Row>
                 <Col xs={12} md={8} >
                     <h3 style={{ color: "white" }}><strong> Qui combat la vérité sera vaincu</strong></h3>
@@ -14,19 +27,20 @@ function Accueil({ setLoggedIn }) {
                     <h5 style={{ color: "white" }}><p>Et implorez le pardon de votre Seigneur et repentez-vous à Lui. Mon Seigneur est vraiment Miséricordieux et plein d'Amour.</p></h5>
                 </Col>
                 <Col xs={12} md={4}>
-                    <h2 style={{ color: "white"}}><strong>IslamVoice</strong></h2>
+                    <h2 style={{ color: "white" }}><strong>IslamVoice</strong></h2>
                     <h5 style={{ color: "white" }}>Restez connecter à l'Islam où que vous soyez !</h5>
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="E-mail" value={userMail} onChange={(e)=>setUserMail(e.target.value)} />
+                            <Form.Control type="email" placeholder="E-mail" value={userMail} onChange={(e) => setUserMail(e.target.value)} />
                         </Form.Group>
-
+                        <p>{userMail}</p>
                         <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Mot de passe" value={userPassWord} onChange={(e)=>setUserPassWord(e.target.value)} />
+                            <Form.Control type="password" placeholder="Mot de passe" value={userPass} onChange={(e) => setUserPassWord(e.target.value)} />
                         </Form.Group>
+                        <p>{userPass}</p>
                     </Form>
-                    <Button onClick={(e) => { e.preventDefault(); setLoggedIn(true) }} variant="primary" type="submit">Connexion</Button>
-                    <a href="#" style={{marginLeft:'50px'}}>Mot de passe oublié ?</a>
+                    <Button onClick={sendLogIn} variant="primary" type="submit">Connexion</Button>
+                    <a href="#" style={{ marginLeft: '50px' }}>Mot de passe oublié ?</a>
                 </Col>
             </Row>
         </Container>

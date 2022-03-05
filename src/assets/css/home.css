@@ -1,9 +1,9 @@
 a{
     color: rgb(231, 122, 49);
 }
-a:hover{
+/* a:hover{
     color: gray;
-}
+} */
 a:focus{
     color: gray;
 }
