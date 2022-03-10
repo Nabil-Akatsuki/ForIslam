@@ -9,7 +9,6 @@ function Entete({ authState }) {
     const navigate =  useNavigate();
    
     const logOut = (e)=>{
-        authState.clear()
         navigate('/accueil')
     }
     return (

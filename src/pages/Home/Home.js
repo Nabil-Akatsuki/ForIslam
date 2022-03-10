@@ -79,7 +79,8 @@ function Home() {
         }
     }, [currentPosition])
     return (
-        <Container fluid style={{ minHeight: "100vh", paddingTop: "70px" }}>
+       <div style={{ paddingTop: "70px" }}>
+            <Container  style={{ minHeight: "100vh"}}>
             <Row  sm='auto' >
                 <Col xs={6} md={4} >
                     <ButtonGroup>
@@ -139,6 +140,7 @@ function Home() {
                 </Col>
             </Row>
         </Container>
+       </div>
     )
 }
 

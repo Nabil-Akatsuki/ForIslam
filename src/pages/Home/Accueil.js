@@ -15,7 +15,7 @@ function Accueil() {
     const [infoState, setInfoState] = useRecoilState(authState);
     const [regiState, setRegiState] = useRecoilState(registerState)
     const navigate = useNavigate();
-    
+
     const sendLogIn = (e) => {
         e.preventDefault();
         logIn({ userMail, userPass }).then(response => {
@@ -29,7 +29,8 @@ function Accueil() {
     }
 
     return (
-        <Container fluid style={{ minHeight: "100vh", paddingTop: "150px", backgroundImage: "url(" + mosque10 + ")", backgroundSize: 'cover' }}>
+        <div style={{paddingTop: "150px", backgroundImage: "url(" + mosque10 + ")", backgroundSize: 'cover' }}>
+            <Container  style={{ minHeight: "100vh"}}>
             <Row>
                 <Col xs={12} md={8} >
                     <h3 style={{ color: "white" }}><strong> Qui combat la vérité sera vaincu </strong></h3>
@@ -53,12 +54,13 @@ function Accueil() {
                                 <Form.Control type="password" placeholder="Mot de passe" value={userPass} onChange={(e) => setUserPassWord(e.target.value)} />
                             </Form.Group>
                         </Form>
-                        <Button onClick={sendLogIn} variant="primary" type="submit">Connexion</Button>
-                        <a href="#" style={{ marginLeft: '50px', color: 'white' }}>Mot de passe oublié ?</a>
+                        <Button onClick={sendLogIn} variant="primary" type="submit" style={{ float: 'right'}}>Connexion</Button>
+                        <a href="#" style={{ float: 'left', color: 'white' }}>Mot de passe oublié ?</a>
                     </Col>) : null
                 }
             </Row>
         </Container>
+        </div>
     )
 }
 

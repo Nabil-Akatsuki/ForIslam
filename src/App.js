@@ -8,6 +8,7 @@ import Inscription from './pages/Home/Inscription';
 import Entete from './components/Entete';
 import Piedpage from './components/Piedpage';
 import Messagerie from './pages/Home/Messagerie';
+import UpdatePage from './pages/UpdatePage'
 import { useRecoilState } from 'recoil';
 import { authState } from './StateGobal/authState';
 import {registerState} from './StateGobal/registerState'
@@ -30,6 +31,7 @@ function App() {
           </>) : null
         }
         <Route path="/inscription" element={<Inscription />} />
+        <Route path="/updatepage" element={<UpdatePage />} />
       </Routes>
       <Piedpage />
     </BrowserRouter>

@@ -1,14 +1,16 @@
 
 import React from 'react'
-import { Container, Row, Col, Nav, Button, NavDropdown, FloatingLabel, Form, Alert } from 'react-bootstrap'
+import { Container, Row, Col, Nav, Button, NavDropdown, FloatingLabel, Form, Alert} from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import '../../assets/css/messagerie.css'
 import { FaRegPaperPlane } from "react-icons/fa";
 import { useRecoilState } from 'recoil';
 import { authState } from '../../StateGobal/authState';
+import { MdPerson } from "react-icons/md";
 
 
 function Messagerie() {
-  const [authData, setAuthData] = useRecoilState(authState);
+    const [authData, setAuthData] = useRecoilState(authState);
 
     return (
 
@@ -18,20 +20,27 @@ function Messagerie() {
                 <Col xs={12} md={2}>
                     <div>
                         <Nav defaultActiveKey="/home" className="flex-column">
-                            <Nav.Link href="" style={{ backgroundColor: '#851E2F', padding: '5px', textAlign: 'center', color: 'white' }}>
+                            <Nav.Link href="" style={{
+                                backgroundColor: '#851E2F',
+                                padding: '5px',
+                                textAlign: 'center',
+                                color: 'white'
+                            }}>
                                 {`${authData?.firstName} ${authData?.lastName}`}
-                                </Nav.Link>
-                            <hr></hr>
+                            </Nav.Link>
+                            <hr style={{color:'white'}} ></hr>
+                            <Button variant="outline-light">
                             <Nav className="me-auto">
-                                <NavDropdown title="Messagerie" id="basic-nav-dropdown" style={{ backgroundColor: '#851E2F' }}>
+                                <NavDropdown title="Messagerie" id="basic-nav-dropdown">
                                     <NavDropdown.Item className="dropCss" href="#action/3.2"> Nous contacter</NavDropdown.Item>
                                     <NavDropdown.Item className="dropCss" href="#action/3.3">Faire un DON</NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item className="dropCss" href="#action/3.4"> A propos</NavDropdown.Item>
                                 </NavDropdown>
                             </Nav>
-
-                        </Nav><br/>
+                            </Button>
+                        </Nav><br />
+                        <Button variant="outline-light" as={Link} to="/updatepage" >Modifier profile <MdPerson/></Button>
                     </div>
                 </Col>
 

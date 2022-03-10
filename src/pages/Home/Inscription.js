@@ -35,7 +35,8 @@ function Inscription() {
     }
 
     return (
-        <Container fluid style={{ minHeight: "100vh", paddingTop: "80px", backgroundImage: "url(" + mosque5 + ")", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+       <div style={{paddingTop: "150px", backgroundImage: "url(" + mosque5 + ")", backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+            <Container  style={{ minHeight: "100vh"}}>
             <Row>
                 <Col xs={12} md={3}>
                     <Form >
@@ -80,7 +81,7 @@ function Inscription() {
                             <Form.Control type="password" placeholder="Entrez votre Mot de passe" value={userPass} onChange={(e) => setUserPass(e.target.value)} />
                         </Form.Group>
 
-                        <Button variant="primary" onClick={sendRegister} style={{ marginLeft: '222px' }}>S'inscrire</Button>
+                        <Button variant="primary" onClick={sendRegister} style={{ float:'right' }}>S'inscrire</Button>
                     </Form>
                 </Col>
                 <Col xs={12} md={6}>
@@ -88,6 +89,7 @@ function Inscription() {
                 </Col>
             </Row>
         </Container >
+       </div>
     )
 }
 
