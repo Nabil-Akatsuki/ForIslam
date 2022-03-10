@@ -3,9 +3,13 @@ import React from 'react'
 import { Container, Row, Col, Nav, Button, NavDropdown, FloatingLabel, Form, Alert } from 'react-bootstrap'
 import '../../assets/css/messagerie.css'
 import { FaRegPaperPlane } from "react-icons/fa";
+import { useRecoilState } from 'recoil';
+import { authState } from '../../StateGobal/authState';
 
 
 function Messagerie() {
+  const [authData, setAuthData] = useRecoilState(authState);
+
     return (
 
         <Container fluid style={{ minHeight: "100vh", paddingTop: "80px", backgroundColor: '#430F18' }}>
@@ -14,11 +18,12 @@ function Messagerie() {
                 <Col xs={12} md={2}>
                     <div>
                         <Nav defaultActiveKey="/home" className="flex-column">
-                            <Nav.Link href="" style={{ backgroundColor: '#851E2F', padding: '5px', textAlign: 'center', color: 'white' }}>Nom Utilisateur</Nav.Link>
+                            <Nav.Link href="" style={{ backgroundColor: '#851E2F', padding: '5px', textAlign: 'center', color: 'white' }}>
+                                {`${authData?.firstName} ${authData?.lastName}`}
+                                </Nav.Link>
                             <hr></hr>
                             <Nav className="me-auto">
                                 <NavDropdown title="Messagerie" id="basic-nav-dropdown" style={{ backgroundColor: '#851E2F' }}>
-                                    <NavDropdown.Item className="dropCss" href="#action/3.1">Groupe de discussion</NavDropdown.Item>
                                     <NavDropdown.Item className="dropCss" href="#action/3.2"> Nous contacter</NavDropdown.Item>
                                     <NavDropdown.Item className="dropCss" href="#action/3.3">Faire un DON</NavDropdown.Item>
                                     <NavDropdown.Divider />
@@ -37,7 +42,7 @@ function Messagerie() {
                                 <div className="col-12">
                                     <div className="card" style={{ backgroundColor: '#851E2F' }} >
                                         <div className="card-body">
-                                            <div className="card-title" style={{ color: 'white', textAlign: 'center' }} >My first chat</div>
+                                            <div className="card-title" style={{ color: 'white', textAlign: 'center' }} >Groupe de discussion</div>
                                             <hr />
                                             <div className="messages">
                                                 <div></div>
