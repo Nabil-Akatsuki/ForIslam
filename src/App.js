@@ -12,7 +12,7 @@ import UpdatePage from './pages/UpdatePage'
 import { useRecoilState } from 'recoil';
 import { authState } from './StateGobal/authState';
 import {registerState} from './StateGobal/registerState'
-
+import Utilisateurs from './pages/Home/Utilisateurs'
 
 function App() {
   const [authData, setAuthData] = useRecoilState(authState);
@@ -32,6 +32,7 @@ function App() {
         }
         <Route path="/inscription" element={<Inscription />} />
         <Route path="/updatepage" element={<UpdatePage />} />
+        <Route path="/utilisateurs" element={<Utilisateurs />} />
       </Routes>
       <Piedpage />
     </BrowserRouter>

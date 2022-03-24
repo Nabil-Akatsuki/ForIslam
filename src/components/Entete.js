@@ -36,8 +36,9 @@ function Entete({ authState }) {
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets" as={Link} to="/home">Coran</Nav.Link>
-                            { authState == null ? <Nav.Link eventKey={2} as={Link} to="/inscription">Inscription</Nav.Link>&&<Nav.Link eventKey={2} as={Link} to="/">Connexion</Nav.Link>: null} 
-                            { authState ?(<Nav.Link  onClick={logOut} >Deconnexion&nbsp; <FiLogOut/></Nav.Link>) : null }
+                            { authState == null ? <Nav.Link eventKey={2} as={Link} to="/inscription">Inscription</Nav.Link> : null} 
+                            {authState== null ? <Nav.Link eventKey={2} as={Link} to="/">Connexion</Nav.Link> : null}
+                            { authState != null ? (<Nav.Link  onClick={logOut} >Deconnexion&nbsp; <FiLogOut/></Nav.Link>) : null }
                         </Nav>
                     </Navbar.Collapse>
                 </Container >
