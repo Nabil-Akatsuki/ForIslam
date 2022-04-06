@@ -10,8 +10,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 function Accueil() {
-    const [userMail, setUserMail] = useState('kader@gmail.com');
-    const [userPass, setUserPassWord] = useState('1234');
+    const [userMail, setUserMail] = useState('');
+    const [userPass, setUserPassWord] = useState('');
     const [infoState, setInfoState] = useRecoilState(authState);
     const [regiState, setRegiState] = useRecoilState(registerState)
     const navigate = useNavigate();
