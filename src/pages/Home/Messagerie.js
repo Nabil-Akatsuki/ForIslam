@@ -11,8 +11,7 @@ import { RiUser3Fill,RiUserSettingsLine} from "react-icons/ri";
 
 function Messagerie() {
     const [authData, setAuthData] = useRecoilState(authState);
-
-
+  
     return (
         <div style={{ paddingTop: "130px", backgroundColor: '#851E2F' }}>
             <Container >

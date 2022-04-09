@@ -26,6 +26,9 @@ function Accueil() {
             console.log(response.data);
             setInfoState(response.data);
             navigate("/messagerie");
+            let responseJson = JSON.stringify(response.data);
+            console.log(responseJson)
+            sessionStorage.setItem('usersData', responseJson)
         }, reason => {
             console.log(reason?.response?.data)
             setRegiState(reason?.response?.data)

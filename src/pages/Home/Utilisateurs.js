@@ -6,7 +6,7 @@ import { removeUser } from '../../services/removeAxios'
 import { useRecoilState } from 'recoil';
 import { authState } from '../../StateGobal/authState';
 import {blockUser} from '../../services/updateAxios';
-
+import dayjs from 'dayjs';
 
 function Utilisateurs() {
     const [nom, setNom] = useState('');
@@ -26,6 +26,7 @@ function Utilisateurs() {
         );
         if (resultat.status === 200) {
             console.log(resultat.data);
+
         }
         setAllData(resultat.data);
     };
@@ -37,7 +38,6 @@ function Utilisateurs() {
     }, [])
 
     const handleRemove = (userId) => {
-       
         removeUser(userId).then(response => {
             console.log(response.data)
             fetchAllUsers();
@@ -47,7 +47,6 @@ function Utilisateurs() {
 
     }
     const userBlock = (userId) => {
-      
         blockUser(userId).then(response =>{
             console.log(response.data)
             setStatusBloc(response.data)

@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import mosque1 from '../image/mosque1.jpg'
 import { Nav, NavDropdown, Navbar, Container, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
 
-function Entete({ authState }) {
-    const navigate =  useNavigate();
+
+function Entete({ authState, logOut=()=>{} }) {
+
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (sessionStorage.getItem('usersData')) {
+            console.log('Appeler les données utilisateurs')
+        }
+        return () => { 
+        }
+    }, [])
    
-    const logOut = (e)=>{
-        navigate('/accueil')
-    }
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
@@ -36,9 +42,9 @@ function Entete({ authState }) {
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets" as={Link} to="/home">Coran</Nav.Link>
-                            { authState == null ? <Nav.Link eventKey={2} as={Link} to="/inscription">Inscription</Nav.Link> : null} 
-                            {authState== null ? <Nav.Link eventKey={2} as={Link} to="/">Connexion</Nav.Link> : null}
-                            { authState != null ? (<Nav.Link  onClick={logOut} >Deconnexion&nbsp; <FiLogOut/></Nav.Link>) : null }
+                            {authState == null ? <Nav.Link eventKey={2} as={Link} to="/inscription">Inscription</Nav.Link> : null}
+                            {authState == null ? <Nav.Link eventKey={2} as={Link} to="/">Connexion</Nav.Link> : null}
+                            {authState != null ? (<Nav.Link onClick={logOut} >Deconnexion&nbsp; <FiLogOut /></Nav.Link>) : null}
                         </Nav>
                     </Navbar.Collapse>
                 </Container >
