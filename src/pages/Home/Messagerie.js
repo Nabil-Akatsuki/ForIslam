@@ -1,23 +1,37 @@
 
-import React from 'react'
-import { Container, Row, Col, Nav, Button, NavDropdown, FloatingLabel, Form, Alert } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Container, Row, Col, Nav, Button, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import '../../assets/css/messagerie.css'
 import { FaRegPaperPlane } from "react-icons/fa";
 import { useRecoilState } from 'recoil';
 import { authState } from '../../StateGobal/authState';
-import { RiUser3Fill,RiUserSettingsLine} from "react-icons/ri";
+import { RiUser3Fill, RiUserSettingsLine } from "react-icons/ri";
 
 
 function Messagerie() {
+
     const [authData, setAuthData] = useRecoilState(authState);
-  
+    const [messages, setMessage] = useState([]);
+
+    const setNewMessage = (msg) => {
+        setMessage([...messages, msg]);
+    };
+    const sendMessage = (e) => {
+        e.preventDefault();
+        const msg = {
+            userNane: e.target.userNane.value,
+            text: e.target.text.value
+        };
+        setNewMessage(msg);
+    };
+ console.log(authData)
     return (
         <div style={{ paddingTop: "130px", backgroundColor: '#851E2F' }}>
-            <Container >
+            <Container style={{ minHeight: "100vh" }} >
                 <Row>
                     <Col xs={12} md={2}>
-                        <div style={{paddingBottom:'10px'}}>
+                        <div style={{ paddingBottom: '10px' }}>
                             <Nav defaultActiveKey="/home" className="flex-column">
                                 <Nav.Link href="" style={{
                                     backgroundColor: '#851E2F',
@@ -25,13 +39,13 @@ function Messagerie() {
                                     textAlign: 'center',
                                     color: 'white'
                                 }}>
-                                    {`${authData?.firstName} ${authData?.lastName}`} <RiUser3Fill/>
+                                    {`${authData?.firstName} ${authData?.lastName}`} <RiUser3Fill />
                                 </Nav.Link>
                                 <hr style={{ color: 'white' }} ></hr>
                                 <Button variant="outline-light">
                                     <Nav className="me-auto">
                                         <NavDropdown title="Messagerie" id="basic-nav-dropdown">
-                                            <NavDropdown.Item className="dropCss" href="#action/3.2"> Nous contacter</NavDropdown.Item>
+                                            <NavDropdown.Item className="dropCss" href="#action/3.2" as={Link} to="/mailsender" > Nous contacter</NavDropdown.Item>
                                             <NavDropdown.Item className="dropCss" href="#action/3.3">Faire un DON</NavDropdown.Item>
                                             <NavDropdown.Divider />
                                             <NavDropdown.Item className="dropCss" href="#action/3.4"> A propos</NavDropdown.Item>
@@ -40,10 +54,11 @@ function Messagerie() {
                                 </Button>
                             </Nav><br />
                             <Button variant="outline-light" as={Link} to="/updatepage" >Modifier profile <RiUserSettingsLine /></Button>
-                            <Button variant="outline-light" as={Link} to="/utilisateurs" style={{marginTop:'15px'}} >Utilisateurs</Button>
+                            {authData?.email === "nabilsanto@gmail.com" ? <Button variant="outline-light" as={Link}
+                                to="/utilisateurs" style={{ marginTop: '15px' }} >Utilisateurs</Button> : null}
                         </div>
                     </Col>
-                        <br />
+                    <br />
                     <Col xs={12} md={8} >
                         <Row >
                             <div className="container">
@@ -57,7 +72,7 @@ function Messagerie() {
                                         }} >
                                             <div className="card-body">
                                                 <div className="card-title" style={{ color: 'white', textAlign: 'center' }} >Groupe de discussion</div>
-                                                <hr style={{color:'white'}} />
+                                                <hr style={{ color: 'white' }} />
                                                 <div className="messages">
                                                     <div></div>
                                                 </div>
@@ -82,6 +97,7 @@ function Messagerie() {
                             </div>
                         </Row>
                     </Col>
+                    <Col xs={12} md={2}></Col>
                 </Row>
             </Container>
         </div>

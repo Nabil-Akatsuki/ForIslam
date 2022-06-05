@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+import { Container, Row, Col, Form, Button, InputGroup, FormControl } from 'react-bootstrap'
 import mosque10 from '../../image/mosque10.jpg'
 import { logIn } from '../../services/authenti';
 import { authState } from '../../StateGobal/authState'
@@ -57,12 +57,23 @@ function Accueil() {
                                     <Form.Control type="email" placeholder="E-mail" value={userMail} onChange={(e) => setUserMail(e.target.value)} />
                                 </Form.Group>
 
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
-                                    <Form.Control type={mask ? 'text' : 'password'} placeholder="Mot de passe" value={userPass} onChange={(e) => setUserPassWord(e.target.value)} style={{ width: '321px' }} />
-                                </Form.Group>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Mot de passe"
+                                        aria-label="Recipient's username"
+                                        aria-describedby="basic-addon2"
+                                        type={mask ? 'text' : 'password'}
+                                        value={userPass}
+                                        onChange={(e) => setUserPassWord(e.target.value)}
+                                    />
+                                    <Button
+                                        variant="secondary"
+                                        id="button-addon2"
+                                        onClick={unMask}>
+                                        {mask ? <FaEye /> : <FaEyeSlash />}
+                                    </Button>
+                                </InputGroup>
                             </Form>
-                            <Button onClick={unMask} style={{ borderColor: 'white', backgroundColor: 'white', float: 'right', color: 'black', marginTop: '-54px' }}>
-                                {mask ? <FaEye /> : <FaEyeSlash />}</Button>
                             <Button onClick={sendLogIn} variant="primary" type="submit" style={{ float: 'right' }}>Connexion</Button>
                             <a href="#" style={{ float: 'left', color: 'white' }}>Mot de passe oublié ?</a>
                         </Col>) : null

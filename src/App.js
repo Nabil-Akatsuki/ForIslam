@@ -13,6 +13,7 @@ import { useRecoilState } from 'recoil';
 import { authState } from './StateGobal/authState';
 import { registerState } from './StateGobal/registerState'
 import Utilisateurs from './pages/Home/Utilisateurs'
+import MailSender from './pages/Home/MailSender';
 
 function App() {
   const [authData, setAuthData] = useRecoilState(authState);
@@ -28,7 +29,6 @@ function App() {
     try {
       let userData = sessionStorage.getItem('usersData');
       if (userData.length === 0 || userData === null) {
-        userData = null;
         return setAuthData(null);
 
       }
@@ -51,11 +51,10 @@ function App() {
           authData !== null ? (<>
             <Route path="/articles" element={<Articles />} />
             <Route path="/messagerie" element={<Messagerie />} />
+            <Route path='/mailsender' element={<MailSender />} />
             <Route path="/utilisateurs" element={<Utilisateurs />} />
             <Route path="/updatepage" element={<UpdatePage />} />
-          </>) : <><Route path="/inscription" element={<Inscription />} />
-
-          </>
+          </>) : <><Route path="/inscription" element={<Inscription />} /></>
         }
         <Route path="*" element={<Accueil />} />
       </Routes>

@@ -3,27 +3,43 @@ import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap"
 import mosque5 from '../../image/mosque5.jpg'
 import '../../assets/css/inscription.css'
 import { register } from '../../services/register'
-import { useRecoilState } from 'recoil'
-import { registerState } from '../../StateGobal/registerState'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Inscription() {
-    const [nom, setNom] = useState('yacoub');
-    const [prenom, setPrenom] = useState('isacc');
-    const [sexe, setSexe] = useState('femme');
+    const navigate = useNavigate();
+    const [nom, setNom] = useState('');
+    const [prenom, setPrenom] = useState('');
+    const [sexe, setSexe] = useState('');
     const [birthDay, setBirthDay] = useState('');
-    const [userMail, setUserMail] = useState('isc@gmail');
-    const [userPass, setUserPass] = useState('123');
+    const [userMail, setUserMail] = useState('')
+    const [userPass, setUserPass] = useState('');
     const [registerError, setRegisterError] = useState(null)
 
     const sendRegister = (e) => {
         e.preventDefault();
         register({ nom, prenom, sexe, birthDay, userMail, userPass }).then(response => {
-            console.log(response.data);
-            setRegisterError(null);
-
+            toast(`${response.data}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            navigate("/accueil")
         }, reason => {
-            console.log(reason?.response?.data)
-            setRegisterError(reason?.response?.data);
+            toast(`${reason?.response.data}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+           
         });
         setNom('');
         setPrenom('');
@@ -53,13 +69,6 @@ function Inscription() {
                                 <Form.Control type="date" value={birthDay} onChange={(e) => setBirthDay(e.target.value)} />
                             </Form.Group>
                         </Form>
-                        <Row>
-                            {registerError !== null ? (<Alert xs={12} md={3} variant="danger">
-                                <p>
-                                    {registerError}
-                                </p>
-                            </Alert>) : null}
-                        </Row>
                     </Col>
                     <Col xs={12} md={3}>
                         <Form>
